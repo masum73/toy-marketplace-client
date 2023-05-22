@@ -92,7 +92,7 @@ const NavBar = () => {
               size="sm"
               className="hidden lg:inline-block"
             >
-              <span>Sign In</span>
+              <Link to='/signin'>Sign In</Link>
             </Button>
             <IconButton
               variant="text"
@@ -136,7 +136,7 @@ const NavBar = () => {
         <MobileNav open={openNav}>
           {navList}
           <Button variant="gradient" size="sm" fullWidth className="mb-2">
-            <span>Sign In</span>
+          <Link to='/signin'>Sign In</Link>
           </Button>
         </MobileNav>
       </Navbar>
