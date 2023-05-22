@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { createContext, useContext } from 'react';
 import {
-    Navbar,
-    MobileNav,
-    Typography,
-    Button,
-    IconButton,
-  } from "@material-tailwind/react";
-import { Link } from 'react-router-dom';
+  Navbar,
+  MobileNav,
+  Typography,
+  Button,
+  IconButton,
+  Tooltip,
+} from "@material-tailwind/react";
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 
 const NavBar = () => {
-    const [openNav, setOpenNav] = React.useState(false);
- 
+  const [openNav, setOpenNav] = React.useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch(error => console.log(error));
+  }
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {user.displayName}
+    </Tooltip>
+  );
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -73,9 +87,9 @@ const NavBar = () => {
       </Typography>
     </ul>
   );
- 
-    return (
-        <>
+
+  return (
+    <>
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
@@ -87,12 +101,32 @@ const NavBar = () => {
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
+            {
+              user && <div className='d-flex justify-content-center align-items-center'>
+                <Tooltip content={user.displayName} placement="bottom-end">
+                <img style={{ borderRadius: '50%', height: '2rem', width: '2rem' }} src={user.photoURL} alt="" />
+                </Tooltip>
+              </div>
+            }
             <Button
               variant="gradient"
               size="sm"
               className="hidden lg:inline-block"
             >
-              <Link to='/signin'>Sign In</Link>
+              {
+                user ?
+                  <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
+                    ({ isActive }) =>
+                      isActive ? "text-primary"
+                        : ""
+                  } onClick={handleLogOut} variant="secondary">Logout</NavLink>
+                  :
+                  <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
+                    ({ isActive }) =>
+                      isActive ? "text-success"
+                        : ""
+                  } to='/signin'>Login</NavLink>
+              }
             </Button>
             <IconButton
               variant="text"
@@ -135,13 +169,33 @@ const NavBar = () => {
         </div>
         <MobileNav open={openNav}>
           {navList}
+          {
+              user && <div className='d-flex justify-content-center align-items-center'>
+                <Tooltip content={user.displayName} placement="bottom-end">
+                <img style={{ borderRadius: '50%', height: '2rem', width: '2rem' }} src={user.photoURL} alt="" />
+                </Tooltip>
+              </div>
+            }
           <Button variant="gradient" size="sm" fullWidth className="mb-2">
-          <Link to='/signin'>Sign In</Link>
+            {
+              user ?
+                <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
+                  ({ isActive }) =>
+                    isActive ? "text-primary"
+                      : ""
+                } onClick={handleLogOut} variant="secondary">Logout</NavLink>
+                :
+                <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
+                  ({ isActive }) =>
+                    isActive ? "text-success"
+                      : ""
+                } to='/signin'>Login</NavLink>
+            }
           </Button>
         </MobileNav>
       </Navbar>
     </>
-    );
+  );
 };
 
 export default NavBar;
