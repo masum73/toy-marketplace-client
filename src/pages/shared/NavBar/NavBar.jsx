@@ -6,6 +6,7 @@ import {
     Button,
     IconButton,
   } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -26,9 +27,9 @@ const NavBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to='/' className="flex items-center">
           Home
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -36,9 +37,9 @@ const NavBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to='/alltoys' className="flex items-center">
           All Toys
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -46,9 +47,9 @@ const NavBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to='/mytoys' className="flex items-center">
           My Toys
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -56,9 +57,9 @@ const NavBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to='/addtoy' className="flex items-center">
           Add a Toy
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -66,9 +67,9 @@ const NavBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <Link to='/blog' className="flex items-center">
           Blog
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
