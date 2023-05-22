@@ -13,7 +13,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
-    const { createUser, updateUser,setUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
 
     const [errors, setErrors] = useState([]);
     const [success, setSuccess] = useState('')
@@ -54,7 +54,6 @@ const SignUp = () => {
                 const createdUser = result.user;
                 console.log(createdUser);
                 updateUser(name, photo)
-                // setErrors('')
                 form.reset();
                 Swal.fire(
                     'Good job!',
@@ -102,7 +101,7 @@ const SignUp = () => {
                             Already have an account?
                             <Typography
                                 as="a"
-                                href="#signup"
+                                href="#signin"
                                 variant="small"
                                 color="blue"
                                 className="ml-1 font-bold"

@@ -108,26 +108,17 @@ const NavBar = () => {
                 </Tooltip>
               </div>
             }
-            <Button
-              variant="gradient"
-              size="sm"
-              className="hidden lg:inline-block"
-            >
+            
               {
-                user ?
-                  <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
-                    ({ isActive }) =>
-                      isActive ? "text-primary"
-                        : ""
-                  } onClick={handleLogOut} variant="secondary">Logout</NavLink>
-                  :
-                  <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
-                    ({ isActive }) =>
-                      isActive ? "text-success"
-                        : ""
-                  } to='/signin'>Login</NavLink>
-              }
-            </Button>
+              user ?
+              <Button onClick={handleLogOut} variant="secondary">
+                log Out
+              </Button>
+                :
+              <Link to='signin'><Button variant="secondary">
+              Log In
+            </Button></Link>
+            }
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -176,22 +167,17 @@ const NavBar = () => {
                 </Tooltip>
               </div>
             }
-          <Button variant="gradient" size="sm" fullWidth className="mb-2">
+          
             {
               user ?
-                <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
-                  ({ isActive }) =>
-                    isActive ? "text-primary"
-                      : ""
-                } onClick={handleLogOut} variant="secondary">Logout</NavLink>
+              <Button onClick={handleLogOut} variant="secondary">
+                log Out
+              </Button>
                 :
-                <NavLink style={{ textDecoration: 'none', fontSize: '14px', margin: '5px' }} className={
-                  ({ isActive }) =>
-                    isActive ? "text-success"
-                      : ""
-                } to='/signin'>Login</NavLink>
+              <Link to='signin'><Button variant="secondary">
+              Log In
+            </Button></Link>
             }
-          </Button>
         </MobileNav>
       </Navbar>
     </>
