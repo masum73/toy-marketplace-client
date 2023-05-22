@@ -46,8 +46,8 @@ const Banner = () => {
                     alt="image 2"
                     className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
-                    <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
+                <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+                    <div className="w-3/4 text-center md:w-2/4">
                         <Typography
                             variant="h1"
                             color="white"
@@ -65,7 +65,7 @@ const Banner = () => {
                             quality of air that emanation from old trees, that so
                             wonderfully changes and renews a weary spirit.
                         </Typography>
-                        <div className="flex gap-2">
+                        <div className="flex justify-center gap-2">
                             <Button size="lg" color="white">
                                 Explore
                             </Button>
@@ -80,10 +80,10 @@ const Banner = () => {
                 <img
                     src="https://i.ibb.co/VwgqT9G/chris-king-Vq-Lyo-Rjhiss-unsplash-1.jpg"
                     alt="image 3"
-                    className="h-1/2 w-full object-cover"
+                    className="h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 grid h-full w-full items-end bg-black/75">
-                    <div className="w-3/4 pl-12 pb-12 md:w-2/4 md:pl-20 md:pb-20 lg:pl-32 lg:pb-32">
+                <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+                    <div className="w-3/4 text-center md:w-2/4">
                         <Typography
                             variant="h1"
                             color="white"
@@ -101,7 +101,7 @@ const Banner = () => {
                             quality of air that emanation from old trees, that so
                             wonderfully changes and renews a weary spirit.
                         </Typography>
-                        <div className="flex gap-2">
+                        <div className="flex justify-center gap-2">
                             <Button size="lg" color="white">
                                 Explore
                             </Button>
