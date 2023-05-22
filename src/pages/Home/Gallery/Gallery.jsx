@@ -3,7 +3,7 @@ import React from 'react';
 const Gallery = () => {
     return (
         <div>
-            <h2 className='text-center text-4xl mb-16'>Gallery</h2>
+            <h2 className='text-center text-4xl my-16'>Gallery</h2>
             
             <figure className='flex gap-3'>
                 <img
@@ -27,7 +27,7 @@ const Gallery = () => {
                     alt="nature image"
                 />
             </figure>
-            
+
             <figure className='flex gap-3 mt-3'>
                 <img
                     className="h-1/4 w-1/4 rounded-lg"
