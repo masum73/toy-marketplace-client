@@ -32,7 +32,7 @@ const AddToy = () => {
             picture: photo,
             price,
             rating,
-            subCategory,
+            subcategory: subCategory,
             quantity,
             description,
             seller: {

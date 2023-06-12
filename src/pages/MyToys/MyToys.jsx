@@ -87,7 +87,7 @@ const MyToys = () => {
                                         </Typography>
                                     </td>
                                     <td className={classes}>
-                                        <Link to={`/mytoys/${_id}`}><Typography  variant="small" color="blue" className="font-medium">
+                                        <Link to={`/mytoys/edit/${_id}`}><Typography  variant="small" color="blue" className="font-medium">
                                             Edit
                                         </Typography></Link>
                                         

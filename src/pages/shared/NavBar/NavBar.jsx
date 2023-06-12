@@ -55,26 +55,31 @@ const NavBar = () => {
           All Toys
         </Link>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <Link to='/mytoys' className="flex items-center">
-          My Toys
-        </Link>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <Link to='/addtoy' className="flex items-center">
-          Add a Toy
-        </Link>
-      </Typography>
+      
+        {
+          user?.email && <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-normal"
+        >
+          <Link to='/mytoys' className="flex items-center">
+            My Toys
+          </Link></Typography>
+        }
+      
+      
+        {
+          user?.email && <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-normal"
+        > <Link to='/addtoy' className="flex items-center">
+            Add a Toy
+          </Link> </Typography>
+        }
+      
       <Typography
         as="li"
         variant="small"
@@ -104,20 +109,20 @@ const NavBar = () => {
             {
               user && <div className='d-flex justify-content-center align-items-center'>
                 <Tooltip content={user.displayName} placement="bottom-end">
-                <img style={{ borderRadius: '50%', height: '2rem', width: '2rem' }} src={user.photoURL} alt="" />
+                  <img style={{ borderRadius: '50%', height: '2rem', width: '2rem' }} src={user.photoURL} alt="" />
                 </Tooltip>
               </div>
             }
-            
-              {
+
+            {
               user ?
-              <Button onClick={handleLogOut} variant="secondary">
-                log Out
-              </Button>
+                <Button onClick={handleLogOut} variant="secondary">
+                  log Out
+                </Button>
                 :
-              <Link to='signin'><Button variant="secondary">
-              Log In
-            </Button></Link>
+                <Link to='signin'><Button variant="secondary">
+                  Log In
+                </Button></Link>
             }
             <IconButton
               variant="text"
@@ -161,23 +166,23 @@ const NavBar = () => {
         <MobileNav open={openNav}>
           {navList}
           {
-              user && <div className='d-flex justify-content-center align-items-center'>
-                <Tooltip content={user.displayName} placement="bottom-end">
+            user && <div className='d-flex justify-content-center align-items-center'>
+              <Tooltip content={user.displayName} placement="bottom-end">
                 <img style={{ borderRadius: '50%', height: '2rem', width: '2rem' }} src={user.photoURL} alt="" />
-                </Tooltip>
-              </div>
-            }
-          
-            {
-              user ?
+              </Tooltip>
+            </div>
+          }
+
+          {
+            user ?
               <Button onClick={handleLogOut} variant="secondary">
                 log Out
               </Button>
-                :
+              :
               <Link to='signin'><Button variant="secondary">
-              Log In
-            </Button></Link>
-            }
+                Log In
+              </Button></Link>
+          }
         </MobileNav>
       </Navbar>
     </>

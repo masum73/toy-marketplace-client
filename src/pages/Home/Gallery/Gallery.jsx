@@ -1,54 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Gallery = () => {
+    const url = 'http://localhost:5000/alltoys'
+    const [toys, setToys] = useState([])
+    useEffect(() => {
+        fetch((url), {
+            method: 'GET'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setToys(data.slice(0, 9));
+            })
+    }, [])
     return (
         <div>
             <h2 className='text-center text-4xl my-16'>Gallery</h2>
-            
+
             <figure className='flex gap-3'>
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
+                {
+                    toys.slice(0,4).map((toy, index) => <img key={index}
+                        className="h-1/4 w-1/4 rounded-lg"
+                        src={toy.picture}
+                        alt="nature image"
+                    />)
+                }
+
             </figure>
 
             <figure className='flex gap-3 mt-3'>
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
-                <img
-                    className="h-1/4 w-1/4 rounded-lg"
-                    src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
-                    alt="nature image"
-                />
+
+                {
+                    toys.slice(4,8).map((toy, index) => <img key={index}
+                        className="h-1/4 w-1/4 rounded-lg"
+                        src={toy.picture}
+                        alt="nature image"
+                    />)
+                }
             </figure>
         </div>
 

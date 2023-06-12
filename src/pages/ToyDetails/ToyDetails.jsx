@@ -1,11 +1,12 @@
-import { Button, Card, Input, Typography } from '@material-tailwind/react';
+import { Button, Card, Input, Textarea, Typography } from '@material-tailwind/react';
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ToyDetails = () => {
+const ToyDetails = ({ edit }) => {
     const { id } = useParams();
     const [toy, setToy] = useState(null);
+
 
     const handleUpdateToy = (event) => {
         event.preventDefault();
@@ -65,14 +66,37 @@ const ToyDetails = () => {
 
                 <form onSubmit={handleUpdateToy} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
                     <div className="mb-4 flex flex-col gap-6">
-                        <Input defaultValue={toy?.price} size="lg" type='number' name='price' label="Price" />
-                        <Input defaultValue={toy?.quantity} size="lg" type='number' name='quantity' label="Available Quantity" />
-                        <Input defaultValue={toy?.description} size="lg" type='text' name='description' label="Detail Description" />
+                        {edit === false && <img className='w-fit' src={toy?.picture}></img>
+                        }
+                        {edit === false && <Input size="lg" defaultValue={toy?.name} type='text' name='name' label="Name" />
+                        }
+                        {edit === false && <Input size="lg" defaultValue={toy?.subCategory} type='text' name='subCategory' label="Sub Category" />
+                        }
+                        {edit === false && <Input size="lg" defaultValue={toy?.price} type='number' name='price' label="Price" />
+                        }
+                        {edit === false && <Input size="lg" defaultValue={toy?.rating} type='number' name='rating' label="Rating" />
+                        }
+                        {edit === false && <Input size="lg" defaultValue={toy?.quantity} type='number' name='quantity' label="Quantity" />
+                        }
+                        {edit === false && <Textarea size="lg" defaultValue={toy?.description} type='text' name='description' label="Description" />
+                        }
+                        {
+                            edit === true && <Input disabled={!edit} defaultValue={toy?.price} size="lg" type='number' name='price' label="Price" />
+                        }
+                        {
+                            edit === true && <Input disabled={!edit} defaultValue={toy?.quantity} size="lg" type='number' name='quantity' label="Available Quantity" />
+                        }
+
+                        {
+                            edit === true && <Textarea disabled={!edit} defaultValue={toy?.description} size="lg" type='text' name='description' label="Detail Description" />
+                        }
                     </div>
-                    
-                    <Button type='submit' className="mt-6" fullWidth>
-                        Update
-                    </Button>
+
+                    {
+                        edit && <Button type='submit' className="mt-6" fullWidth>
+                            Update
+                        </Button>
+                    }
                 </form>
             </Card>
         </div>

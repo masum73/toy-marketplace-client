@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import {
     Card,
     CardHeader,
@@ -9,26 +10,38 @@ import {
 } from "@material-tailwind/react";
 
 const AllToys = () => {
+    const url = 'http://localhost:5000/alltoys'
+    const [toys, setToys] = useState([])
+    useEffect(() => {
+        fetch((url),{
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            setToys(data);
+        })
+    },[])
     return (
         <div className='container mx-auto my-16'>
-            <Card className="mt-6 w-96">
+            {
+                toys.map((toy,index) => <Card key={index} className="mt-6 w-96">
                 <CardHeader color="blue-gray" className="relative h-56">
-                    <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="img-blur-shadow" layout="fill" />
+                    <img src={toy.picture} alt="img-blur-shadow" layout="fill" />
                 </CardHeader>
                 <CardBody>
                     <Typography variant="h5" color="blue-gray" className="mb-2">
-                        UI/UX Review Check
+                       {toy.name}
                     </Typography>
                     <Typography>
-                        The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                        and near to &quot;Naviglio&quot; where you can enjoy the main night life
-                        in Barcelona.
+                        {toy.description}
                     </Typography>
                 </CardBody>
                 <CardFooter className="pt-0">
-                    <Button>Read More</Button>
+                    <Link to={`/toy/${toy._id}`}><Button >View Details</Button></Link>
                 </CardFooter>
-            </Card>
+            </Card>)
+            }
         </div>
     );
 };
