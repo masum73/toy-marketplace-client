@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Gallery = () => {
     const url = 'http://localhost:5000/alltoys'
     const [toys, setToys] = useState([])
     useEffect(() => {
+        AOS.init();
         fetch((url), {
             method: 'GET'
         })
@@ -14,10 +17,10 @@ const Gallery = () => {
             })
     }, [])
     return (
-        <div data-aos="flip-left">
+        <div >
             <h2 className='text-center text-4xl my-16'>Gallery</h2>
 
-            <figure  className='flex gap-3 mx-3'>
+            <figure data-aos="zoom-in" className='flex gap-3 mx-3'>
                 {
                     toys.slice(0,4).map((toy, index) => <img key={index}
                         className="h-1/4 w-1/4 rounded-lg"
@@ -28,7 +31,7 @@ const Gallery = () => {
 
             </figure>
 
-            <figure className='flex gap-3 mt-3 mx-3'>
+            <figure data-aos="zoom-in" className='flex gap-3 mt-3 mx-3'>
 
                 {
                     toys.slice(4,8).map((toy, index) => <img key={index}
