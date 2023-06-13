@@ -5,6 +5,7 @@ import {
     AccordionHeader,
     AccordionBody,
 } from "@material-tailwind/react";
+import { Helmet } from 'react-helmet';
 
 const Blog = () => {
     const [open, setOpen] = useState(0);
@@ -20,6 +21,9 @@ const Blog = () => {
 
     return (
         <div className='container mx-auto my-16'>
+            <Helmet>
+                <title>Toy Time | Blog</title>
+            </Helmet>
             <Fragment>
                 <Accordion open={open === 1} animate={customAnimation}>
                     <AccordionHeader onClick={() => handleOpen(1)}>

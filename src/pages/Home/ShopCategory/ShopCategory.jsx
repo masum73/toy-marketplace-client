@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Link } from "react-router-dom";
@@ -10,11 +10,14 @@ import {
     Button,
     CardFooter,
 } from "@material-tailwind/react";
+import { AuthContext } from '../../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const ShopCategory = () => {
     const url = 'http://localhost:5000/alltoys'
     const [toys, setToys] = useState([])
+    const {user} = useContext(AuthContext)
     useEffect(() => {
         fetch((url), {
             method: 'GET'
@@ -25,6 +28,22 @@ const ShopCategory = () => {
                 setToys(data);
             })
     }, [])
+
+    const handleViewDetails = (_id) => {
+        if(user){
+            <Link to={`/toy/${toy._id}`}></Link>
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You have to login first to see the details!',
+                // footer: '<a href="/signin"> Please Login</a>'
+                confirmButtonText: 'Ok' , 
+                footer: '<a href="/signin">Click to login</a>'
+              })
+              
+        }
+    }
     return (
 
         <div>
@@ -38,7 +57,7 @@ const ShopCategory = () => {
                             <Tab>Regular Cars</Tab>
                         </TabList>
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-8 justify-center items-center'>
+                            <div className='ml-8 grid md:grid-cols-1 lg:grid-cols-3 gap-8 justify-center items-center'>
                                 {
                                     toys.filter(toy => toy.subcategory === 'Sports Cars').map((toy, index) => <Card className="w-96">
                                         <CardHeader shadow={false} floated={false} className="h-96">
@@ -64,20 +83,20 @@ const ShopCategory = () => {
                                             </Typography>
                                         </CardBody>
                                         <CardFooter className="pt-0">
-                                            <Link to={`/toy/${toy._id}`}><Button
+                                            <Button onClick={()=>handleViewDetails(toy._id)}
                                                 ripple={false}
                                                 fullWidth={true}
                                                 className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
                                             >
                                                 View Details
-                                            </Button></Link>
+                                            </Button>
                                         </CardFooter>
                                     </Card>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-8 justify-center items-center'>
+                            <div className='ml-8 grid  md:grid-cols-1 lg:grid-cols-3 gap-8 justify-center items-center'>
                                 {
                                     toys.filter(toy => toy.subcategory === 'Trucks').map((toy, index) => <Card className="w-96">
                                         <CardHeader shadow={false} floated={false} className="h-96">
@@ -103,20 +122,20 @@ const ShopCategory = () => {
                                             </Typography>
                                         </CardBody>
                                         <CardFooter className="pt-0">
-                                            <Link to={`/toy/${toy._id}`}><Button
+                                            <Button onClick={()=>handleViewDetails(toy._id)}
                                                 ripple={false}
                                                 fullWidth={true}
                                                 className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
                                             >
                                                 View Details
-                                            </Button></Link>
+                                            </Button>
                                         </CardFooter>
                                     </Card>)
                                 }
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-8 justify-center items-center'>
+                            <div className=' ml-8 grid  md:grid-cols-1 lg:grid-cols-3 gap-8 justify-center items-center'>
                                 {
                                     toys.filter(toy => toy.subcategory === 'Regular').map((toy, index) => <Card className="w-96">
                                         <CardHeader shadow={false} floated={false} className="h-96">
@@ -142,13 +161,13 @@ const ShopCategory = () => {
                                             </Typography>
                                         </CardBody>
                                         <CardFooter className="pt-0">
-                                            <Link to={`/toy/${toy._id}`}><Button
+                                            <Button onClick={()=>handleViewDetails(toy._id)}
                                                 ripple={false}
                                                 fullWidth={true}
                                                 className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
                                             >
                                                 View Details
-                                            </Button></Link>
+                                            </Button>
                                         </CardFooter>
                                     </Card>)
                                 }

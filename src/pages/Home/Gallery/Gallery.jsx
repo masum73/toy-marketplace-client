@@ -14,10 +14,10 @@ const Gallery = () => {
             })
     }, [])
     return (
-        <div>
+        <div data-aos="flip-left">
             <h2 className='text-center text-4xl my-16'>Gallery</h2>
 
-            <figure className='flex gap-3'>
+            <figure  className='flex gap-3 mx-3'>
                 {
                     toys.slice(0,4).map((toy, index) => <img key={index}
                         className="h-1/4 w-1/4 rounded-lg"
@@ -28,7 +28,7 @@ const Gallery = () => {
 
             </figure>
 
-            <figure className='flex gap-3 mt-3'>
+            <figure className='flex gap-3 mt-3 mx-3'>
 
                 {
                     toys.slice(4,8).map((toy, index) => <img key={index}

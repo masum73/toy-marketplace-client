@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
     Card,
     Input,
     Checkbox,
     Button,
     Typography,
+    Select,
+    Option,
 } from "@material-tailwind/react";
 import { AuthContext } from '../../provider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 
 const AddToy = () => {
@@ -66,6 +69,9 @@ const AddToy = () => {
     }
     return (
         <div className='container mx-auto my-16'>
+            <Helmet>
+                <title>Toy Time | Add a Toy</title>
+            </Helmet>
             <Card color="transparent" shadow={false}>
                 <Typography variant="h4" color="blue-gray">
                     Add A Toy
@@ -77,19 +83,23 @@ const AddToy = () => {
                     <div className="mb-4 flex flex-col gap-6">
                         <Input size="lg" type='url' name='photo' label="Photo URL" />
                         <Input size="lg" type='text' name='name' label="Name" />
-                        {/* <Input size="lg" defaultValue={toy} type='text' name='sellerName' label="Seller Name" />
-                        <label>Sub Category - Select from the dropdown below</label>
-                        <select name='subcategory'>
-                            <option value="Sports Cars">Sports Car</option>
-                            <option value="Trucks">Trucks</option>
-                            <option value="Regular">Regular Car</option>
-                        </select> */}
-                        <Input size="lg" type='text' name='subCategory' label="Sub-Category" />
+                        <div className="w-96">
+                            <Select name='subcategory' label="Select Sub-Category">
+                                <Option value='Sports Cars'>Sports Car</Option>
+                                <Option value='Trucks'>Trucks</Option>
+                                <Option value='Regular'>Regular Car</Option>
+                            </Select>
+                        </div>
+                        {/* <Input size="lg" type='text' name='subCategory' label="Sub-Category" /> */}
                         <Input size="lg" type='number' name='price' label="Price" />
                         <Input size="lg" type='number' name='rating' label="Rating" />
                         <Input size="lg" type='number' name='quantity' label="Available Quantity" />
                         <Input size="lg" type='text' name='description' label="Detail Description" />
                     </div>
+                    <label htmlFor="">Seller Name & Email</label>
+                    
+                    <Input size="lg" disabled defaultValue={user.displayName} type='text' name='sellerName' label="Seller Name" /> <br />
+                    <Input size="lg" disabled defaultValue={user.email} type='text' name='sellerEmail' label="Seller Email" />
                     <Button type='submit' className="mt-6" fullWidth>
                         Add a Toy
                     </Button>

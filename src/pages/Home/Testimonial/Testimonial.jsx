@@ -12,8 +12,8 @@ const Testimonial = () => {
     return (
         <div>
             <h2 className='text-center text-4xl my-16'>Customer Reviews</h2>
-            <div className='flex gap-8 justify-center items-center my-5'>
-                <Card color="transparent" shadow={false} className="w-full max-w-[26rem]">
+            <div className='flex flex-col md:flex-row  gap-8 justify-center items-center my-5'>
+                <Card color="transparent" shadow={false} className="w-full max-w-[26rem] px-5">
                     <CardHeader
                         color="transparent"
                         floated={false}
@@ -48,7 +48,7 @@ const Testimonial = () => {
                         </Typography>
                     </CardBody>
                 </Card>
-                <Card color="transparent" shadow={false} className="w-full max-w-[26rem]">
+                <Card color="transparent" shadow={false} className="w-full max-w-[26rem] px-5">
                     <CardHeader
                         color="transparent"
                         floated={false}

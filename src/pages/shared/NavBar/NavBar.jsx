@@ -55,9 +55,9 @@ const NavBar = () => {
           All Toys
         </Link>
       </Typography>
-      
-        {
-          user?.email && <Typography
+
+      {
+        user?.email && <Typography
           as="li"
           variant="small"
           color="blue-gray"
@@ -66,11 +66,11 @@ const NavBar = () => {
           <Link to='/mytoys' className="flex items-center">
             My Toys
           </Link></Typography>
-        }
-      
-      
-        {
-          user?.email && <Typography
+      }
+
+
+      {
+        user?.email && <Typography
           as="li"
           variant="small"
           color="blue-gray"
@@ -78,8 +78,8 @@ const NavBar = () => {
         > <Link to='/addtoy' className="flex items-center">
             Add a Toy
           </Link> </Typography>
-        }
-      
+      }
+
       <Typography
         as="li"
         variant="small"
@@ -96,13 +96,16 @@ const NavBar = () => {
   return (
     <>
       <Navbar className="sticky inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
-        <div className="flex items-center justify-between text-blue-gray-900">
+        <div className=" h-12 flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
             href="#"
-            className="mr-4 cursor-pointer py-1.5 font-medium"
+            className="mr-4 text-xl cursor-pointer py-1.5 font-semibold"
           >
-            Toy Time
+            {/* Toy Time */}
+            <div className='m-5 overflow-hidden'>
+              <img className='' width='100px' height='60px' src="https://i.ibb.co/s2MzS7v/logo2.png" />
+            </div>
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>

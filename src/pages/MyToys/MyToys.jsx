@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Card, Typography } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const MyToys = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Toy Time | My Toys</title>
+            </Helmet>
             <h2 className='text-center text-4xl my-16'>My Toys</h2>
             <div className='flex justify-center items-center w-11/12 mx-auto'>
                 <Card className="overflow-scroll h-full w-full">
