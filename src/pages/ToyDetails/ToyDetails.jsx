@@ -70,7 +70,11 @@ const ToyDetails = ({ edit }) => {
                         }
                         {edit === false && <Input size="lg" defaultValue={toy?.name} type='text' name='name' label="Name" />
                         }
-                        {edit === false && <Input size="lg" defaultValue={toy?.subCategory} type='text' name='subCategory' label="Sub Category" />
+                        {edit === false && <Input size="lg" defaultValue={toy?.seller?.name} type='text' name='sellerName' label="Seller Name" />
+                        }
+                        {edit === false && <Input size="lg" defaultValue={toy?.seller?.email} type='text' name='SellerEmail' label="Seller Email" />
+                        }
+                        {edit === false && <Input size="lg" defaultValue={toy?.subcategory} type='text' name='subCategory' label="Sub Category" />
                         }
                         {edit === false && <Input size="lg" defaultValue={toy?.price} type='number' name='price' label="Price" />
                         }

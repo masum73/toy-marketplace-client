@@ -26,6 +26,7 @@ const PopularToys = () => {
     return (
         <div>
             <h2 className='text-center text-4xl my-16'>Popular Toys</h2>
+            <div className='flex flex-row gap-8 justify-center items-center'>
             {
                 toys.filter(toy => toy.rating > 4.5).slice(0,3).map((toy, index) => <Card className="w-96">
                     <CardHeader shadow={false} floated={false} className="h-96">
@@ -40,11 +41,14 @@ const PopularToys = () => {
                                 {toy?.name}
                             </Typography>
                             <Typography color="blue-gray" className="font-medium">
-                                {toy?.price}
+                                ${toy?.price}
                             </Typography>
                         </div>
                         <Typography variant="small" color="gray" className="font-normal opacity-75">
                             {toy?.description}
+                        </Typography>
+                        <Typography variant="large" color="black" className="font-bold opacity-75">
+                            Rating: {toy?.rating}
                         </Typography>
                     </CardBody>
                     <CardFooter className="pt-0">
@@ -58,6 +62,7 @@ const PopularToys = () => {
                     </CardFooter>
                 </Card>)
             }
+            </div>
         </div>
     );
 };

@@ -38,144 +38,124 @@ const ShopCategory = () => {
                             <Tab>Regular Cars</Tab>
                         </TabList>
                         <TabPanel>
-                            {
-                                toys.filter(toy => toy.subcategory === 'Sports Cars').map((toy, index) => <Card className="w-96">
-                                    <CardHeader shadow={false} floated={false} className="h-96">
-                                        <img
-                                            src={toy?.picture}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </CardHeader>
-                                    <CardBody>
-                                        <div className="flex items-center justify-between mb-2">
-                                            <Typography color="blue-gray" className="font-medium">
-                                                {toy?.name}
+                            <div className='grid grid-cols-3 gap-8 justify-center items-center'>
+                                {
+                                    toys.filter(toy => toy.subcategory === 'Sports Cars').map((toy, index) => <Card className="w-96">
+                                        <CardHeader shadow={false} floated={false} className="h-96">
+                                            <img
+                                                src={toy?.picture}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </CardHeader>
+                                        <CardBody>
+                                            <div className="flex items-center justify-between mb-2">
+                                                <Typography color="blue-gray" className="font-bold">
+                                                    {toy?.name}
+                                                </Typography>
+                                                <Typography color="blue-gray" className="font-bold">
+                                                    ${toy?.price}
+                                                </Typography>
+                                            </div>
+                                            <Typography variant="small" color="gray" className="font-normal opacity-75">
+                                                {toy?.description}
                                             </Typography>
-                                            <Typography color="blue-gray" className="font-medium">
-                                                {toy?.price}
+                                            <Typography variant="large" color="black" className="font-bold opacity-75">
+                                                Rating: {toy?.rating}
                                             </Typography>
-                                        </div>
-                                        <Typography variant="small" color="gray" className="font-normal opacity-75">
-                                            {toy?.description}
-                                        </Typography>
-                                    </CardBody>
-                                    <CardFooter className="pt-0">
-                                        <Link to={`/toy/${toy._id}`}><Button
-                                            ripple={false}
-                                            fullWidth={true}
-                                            className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
-                                        >
-                                            View Details
-                                        </Button></Link>
-                                    </CardFooter>
-                                </Card>)
-                            }
+                                        </CardBody>
+                                        <CardFooter className="pt-0">
+                                            <Link to={`/toy/${toy._id}`}><Button
+                                                ripple={false}
+                                                fullWidth={true}
+                                                className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
+                                            >
+                                                View Details
+                                            </Button></Link>
+                                        </CardFooter>
+                                    </Card>)
+                                }
+                            </div>
                         </TabPanel>
                         <TabPanel>
-                            {
-                                toys.filter(toy => toy.subcategory === 'Trucks').map((toy, index) => <Card className="w-96">
-                                    <CardHeader shadow={false} floated={false} className="h-96">
-                                        <img
-                                            src={toy?.picture}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </CardHeader>
-                                    <CardBody>
-                                        <div className="flex items-center justify-between mb-2">
-                                            <Typography color="blue-gray" className="font-medium">
-                                                {toy?.name}
+                            <div className='grid grid-cols-3 gap-8 justify-center items-center'>
+                                {
+                                    toys.filter(toy => toy.subcategory === 'Trucks').map((toy, index) => <Card className="w-96">
+                                        <CardHeader shadow={false} floated={false} className="h-96">
+                                            <img
+                                                src={toy?.picture}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </CardHeader>
+                                        <CardBody>
+                                            <div className="flex items-center justify-between mb-2">
+                                                <Typography color="blue-gray" className="font-bold">
+                                                    {toy?.name}
+                                                </Typography>
+                                                <Typography color="blue-gray" className="font-bold">
+                                                    ${toy?.price}
+                                                </Typography>
+                                            </div>
+                                            <Typography variant="small" color="gray" className="font-normal opacity-75">
+                                                {toy?.description}
                                             </Typography>
-                                            <Typography color="blue-gray" className="font-medium">
-                                                {toy?.price}
+                                            <Typography variant="large" color="black" className="font-bold opacity-75">
+                                                Rating: {toy?.rating}
                                             </Typography>
-                                        </div>
-                                        <Typography variant="small" color="gray" className="font-normal opacity-75">
-                                            {toy?.description}
-                                        </Typography>
-                                    </CardBody>
-                                    <CardFooter className="pt-0">
-                                        <Link to={`/toy/${toy._id}`}><Button
-                                            ripple={false}
-                                            fullWidth={true}
-                                            className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
-                                        >
-                                            View Details
-                                        </Button></Link>
-                                    </CardFooter>
-                                </Card>)
-                            }
+                                        </CardBody>
+                                        <CardFooter className="pt-0">
+                                            <Link to={`/toy/${toy._id}`}><Button
+                                                ripple={false}
+                                                fullWidth={true}
+                                                className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
+                                            >
+                                                View Details
+                                            </Button></Link>
+                                        </CardFooter>
+                                    </Card>)
+                                }
+                            </div>
                         </TabPanel>
                         <TabPanel>
-                            {
-                                toys.filter(toy => toy.subcategory === 'Regular').map((toy, index) => <Card className="w-96">
-                                    <CardHeader shadow={false} floated={false} className="h-96">
-                                        <img
-                                            src={toy?.picture}
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </CardHeader>
-                                    <CardBody>
-                                        <div className="flex items-center justify-between mb-2">
-                                            <Typography color="blue-gray" className="font-medium">
-                                                {toy?.name}
+                            <div className='grid grid-cols-3 gap-8 justify-center items-center'>
+                                {
+                                    toys.filter(toy => toy.subcategory === 'Regular').map((toy, index) => <Card className="w-96">
+                                        <CardHeader shadow={false} floated={false} className="h-96">
+                                            <img
+                                                src={toy?.picture}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </CardHeader>
+                                        <CardBody>
+                                            <div className="flex items-center justify-between mb-2">
+                                                <Typography color="blue-gray" className="font-bold">
+                                                    {toy?.name}
+                                                </Typography>
+                                                <Typography color="blue-gray" className="font-bold">
+                                                    ${toy?.price}
+                                                </Typography>
+                                            </div>
+                                            <Typography variant="small" color="gray" className="font-normal opacity-75">
+                                                {toy?.description}
                                             </Typography>
-                                            <Typography color="blue-gray" className="font-medium">
-                                                {toy?.price}
+                                            <Typography variant="large" color="black" className="font-bold opacity-75">
+                                                Rating: {toy?.rating}
                                             </Typography>
-                                        </div>
-                                        <Typography variant="small" color="gray" className="font-normal opacity-75">
-                                            {toy?.description}
-                                        </Typography>
-                                    </CardBody>
-                                    <CardFooter className="pt-0">
-                                        <Link to={`/toy/${toy._id}`}><Button
-                                            ripple={false}
-                                            fullWidth={true}
-                                            className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
-                                        >
-                                            View Details
-                                        </Button></Link>
-                                    </CardFooter>
-                                </Card>)
-                            }
+                                        </CardBody>
+                                        <CardFooter className="pt-0">
+                                            <Link to={`/toy/${toy._id}`}><Button
+                                                ripple={false}
+                                                fullWidth={true}
+                                                className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
+                                            >
+                                                View Details
+                                            </Button></Link>
+                                        </CardFooter>
+                                    </Card>)
+                                }
+                            </div>
                         </TabPanel>
                     </Tabs>
                 </TabPanel>
-                {/* <TabPanel>
-                    <Tabs forceRenderTabPanel>
-                        <TabList>
-                            <Tab>Philip J. Fry</Tab>
-                            <Tab>Turanga Leela</Tab>
-                            <Tab>Bender Bending Rodriguez</Tab>
-                            <Tab>Amy Wong</Tab>
-                            <Tab>Professor Hubert J. Farnsworth</Tab>
-                            <Tab>Doctor John Zoidberg</Tab>
-                        </TabList>
-                        <TabPanel>
-                            <p>Protagonist, from the 20th Century. Delivery boy. Many times great-uncle to Professor Hubert Farnsworth. Suitor of Leela.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Philip_Fry.png/175px-Philip_Fry.png" alt="Philip J. Fry" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Mutant cyclops. Captain of the Planet Express Ship. Love interest of Fry.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Turanga_Leela.png/150px-Turanga_Leela.png" alt="Turanga Leela" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>A kleptomaniacal, lazy, cigar-smoking, heavy-drinking robot who is Fry's best friend. Built in Tijuana, Mexico, he is the Planet Express Ship's cook.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Bender_Rodriguez.png/220px-Bender_Rodriguez.png" alt="Bender Bending Rodriguez" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Chinese-Martian intern at Planet Express. Fonfon Ru of Kif Kroker.</p>
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Many times great-nephew of Fry. CEO and owner of Planet Express delivery company. Tenured professor of Mars University.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/FuturamaProfessorFarnsworth.png/175px-FuturamaProfessorFarnsworth.png" alt="Professor Hubert J. Farnsworth" />
-                        </TabPanel>
-                        <TabPanel>
-                            <p>Alien from Decapod 10. Planet Express' staff doctor and steward. Has a medical degree and Ph.D in art history.</p>
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Dr_John_Zoidberg.png/200px-Dr_John_Zoidberg.png" alt="Doctor John Zoidberg" />
-                        </TabPanel>
-                    </Tabs>
-                </TabPanel> */}
             </Tabs>
         </div>
 

@@ -21,7 +21,7 @@ const Footer = () => {
             <div className="mx-auto w-full max-w-7xl px-8">
                 <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
                     <Typography variant="h5" className="mb-6">
-                        Toy Time 
+                        Toy Time <br /> <span className='font-normal'>Embrace the Magic of Childhood with our Captivating Toys.</span>
                     </Typography>
                     
                     <div className="grid grid-cols-3 justify-between gap-4">

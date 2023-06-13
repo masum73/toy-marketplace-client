@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
   Navbar,
   MobileNav,
@@ -7,7 +7,7 @@ import {
   IconButton,
   Tooltip,
 } from "@material-tailwind/react";
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel, Typography, Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -17,25 +18,19 @@ const Banner = () => {
                             color="white"
                             className="mb-4 text-3xl md:text-4xl lg:text-5xl"
                         >
-                            The Beauty of Nature
+                            Welcome to ToyTime, Where Imagination Comes to Life!
                         </Typography>
                         <Typography
                             variant="lead"
                             color="white"
                             className="mb-12 opacity-80"
                         >
-                            It is not so much for its beauty that the forest makes a claim
-                            upon men&apos;s hearts, as for that subtle something, that
-                            quality of air that emanation from old trees, that so
-                            wonderfully changes and renews a weary spirit.
+                            Your one-stop destination for all things playtime! With a wide and captivating range of toys, we bring joy and imagination to children of all ages. Whether you're looking for classic favorites or the latest trends, we have an enchanting selection that will ignite their imagination and create magical memories
                         </Typography>
                         <div className="flex justify-center gap-2">
-                            <Button size="lg" color="white">
+                            <Link to='/alltoys'><Button size="lg" color="white">
                                 Explore
-                            </Button>
-                            <Button size="lg" color="white" variant="text">
-                                Gallery
-                            </Button>
+                            </Button></Link>
                         </div>
                     </div>
                 </div>
@@ -53,25 +48,19 @@ const Banner = () => {
                             color="white"
                             className="mb-4 text-3xl md:text-4xl lg:text-5xl"
                         >
-                            The Beauty of Nature
+                            From Classic Favorites to the Latest Trends, Find the Perfect Toy.
                         </Typography>
                         <Typography
                             variant="lead"
                             color="white"
                             className="mb-12 opacity-80"
                         >
-                            It is not so much for its beauty that the forest makes a claim
-                            upon men&apos;s hearts, as for that subtle something, that
-                            quality of air that emanation from old trees, that so
-                            wonderfully changes and renews a weary spirit.
+                            We understand the importance of play in a child's development. That's why we curate toys that inspire creativity, foster learning, and promote hours of fun-filled entertainment. Our collection spans across various categories, from educational toys that encourage problem-solving skills to interactive games that promote social interaction and teamwork.
                         </Typography>
                         <div className="flex justify-center gap-2">
-                            <Button size="lg" color="white">
+                            <Link to='/alltoys'><Button size="lg" color="white">
                                 Explore
-                            </Button>
-                            <Button size="lg" color="white" variant="text">
-                                Gallery
-                            </Button>
+                            </Button></Link>
                         </div>
                     </div>
                 </div>
@@ -89,25 +78,19 @@ const Banner = () => {
                             color="white"
                             className="mb-4 text-3xl md:text-4xl lg:text-5xl"
                         >
-                            The Beauty of Nature
+                            Join the Adventure of a Lifetime with Our Extraordinary Toys.
                         </Typography>
                         <Typography
                             variant="lead"
                             color="white"
                             className="mb-12 opacity-80"
                         >
-                            It is not so much for its beauty that the forest makes a claim
-                            upon men&apos;s hearts, as for that subtle something, that
-                            quality of air that emanation from old trees, that so
-                            wonderfully changes and renews a weary spirit.
+                            Quality is our top priority. We carefully select toys from renowned brands known for their durability, safety, and innovation. Each toy undergoes rigorous testing to ensure it meets our strict standards, providing you with peace of mind as you browse our virtual shelves.
                         </Typography>
                         <div className="flex justify-center gap-2">
-                            <Button size="lg" color="white">
+                            <Link to='/alltoys'><Button size="lg" color="white">
                                 Explore
-                            </Button>
-                            <Button size="lg" color="white" variant="text">
-                                Gallery
-                            </Button>
+                            </Button></Link>
                         </div>
                     </div>
                 </div>

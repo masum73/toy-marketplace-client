@@ -10,7 +10,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 
 const AddToy = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     const handleAddToy = (event) => {
         event.preventDefault();
@@ -19,20 +19,20 @@ const AddToy = () => {
 
         const photo = form.photo.value;
         const name = form.name.value;
-        const subCategory = form.subCategory.value;
+        const subcategory = form.subcategory.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        
+
         console.log(user.name);
-        
+
         const addToy = {
             name,
             picture: photo,
             price,
             rating,
-            subcategory: subCategory,
+            subcategory,
             quantity,
             description,
             seller: {
@@ -43,20 +43,20 @@ const AddToy = () => {
         }
         console.log(addToy);
         fetch('http://localhost:5000/alltoys', {
-            
+
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(addToy)
         })
-        .then (res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                alert('toy added successfully');
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    alert('toy added successfully');
+                }
+            })
 
 
 
@@ -77,6 +77,13 @@ const AddToy = () => {
                     <div className="mb-4 flex flex-col gap-6">
                         <Input size="lg" type='url' name='photo' label="Photo URL" />
                         <Input size="lg" type='text' name='name' label="Name" />
+                        {/* <Input size="lg" defaultValue={toy} type='text' name='sellerName' label="Seller Name" />
+                        <label>Sub Category - Select from the dropdown below</label>
+                        <select name='subcategory'>
+                            <option value="Sports Cars">Sports Car</option>
+                            <option value="Trucks">Trucks</option>
+                            <option value="Regular">Regular Car</option>
+                        </select> */}
                         <Input size="lg" type='text' name='subCategory' label="Sub-Category" />
                         <Input size="lg" type='number' name='price' label="Price" />
                         <Input size="lg" type='number' name='rating' label="Rating" />
