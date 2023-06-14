@@ -46,7 +46,7 @@ const AddToy = () => {
 
         }
         console.log(addToy);
-        fetch('https://toy-time-server.vercel.app/alltoys', {
+        fetch('https://toy-time-server-mcw3s2dri-masum73.vercel.app/alltoys', {
 
             method: 'POST',
             headers: {

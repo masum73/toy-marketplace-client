@@ -12,7 +12,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const PopularToys = () => {
-    const url = 'https://toy-time-server.vercel.app/alltoys'
+    const url = 'https://toy-time-server-mcw3s2dri-masum73.vercel.app/alltoys'
     const [toys, setToys] = useState([])
     const { user } = useContext(AuthContext);
 
