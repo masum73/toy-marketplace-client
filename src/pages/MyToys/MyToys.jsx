@@ -9,7 +9,7 @@ const MyToys = () => {
     const [toys, setToys] = useState([]);
     const TABLE_HEAD = ["Toy Name", "Price", "Quantity", "Description", "Action", "Action"];
 
-    const url = `http://localhost:5000/mytoys?email=${user?.email}`;
+    const url = `https://toy-time-server.vercel.app/mytoys?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url, {
@@ -25,7 +25,7 @@ const MyToys = () => {
     const handleDelete = id => {
         const proceed = confirm('Are you sure you want to delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/mytoys/${id}`, {
+            fetch(`https://toy-time-server.vercel.app/mytoys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

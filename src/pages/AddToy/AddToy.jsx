@@ -46,7 +46,7 @@ const AddToy = () => {
 
         }
         console.log(addToy);
-        fetch('http://localhost:5000/alltoys', {
+        fetch('https://toy-time-server.vercel.app/alltoys', {
 
             method: 'POST',
             headers: {

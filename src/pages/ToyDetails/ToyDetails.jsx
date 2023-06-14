@@ -28,7 +28,7 @@ const ToyDetails = ({ edit }) => {
 
         }
         console.log(updateToy);
-        fetch(`http://localhost:5000/mytoys/toy/${id}`, {
+        fetch(`https://toy-time-server.vercel.app/mytoys/toy/${id}`, {
 
             method: 'PATCH',
             headers: {
@@ -53,7 +53,7 @@ const ToyDetails = ({ edit }) => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mytoys/toy/${id}`, {
+        fetch(`https://toy-time-server.vercel.app/mytoys/toy/${id}`, {
             method: 'GET',
         })
             .then(res => res.json())

@@ -12,7 +12,7 @@ import {
 import { Helmet } from 'react-helmet';
 
 const AllToys = () => {
-    const url = 'http://localhost:5000/alltoys'
+    const url = 'https://toy-time-server.vercel.app/alltoys'
     const [toys, setToys] = useState([])
     const [toyName, setToyName] = React.useState("");
     const onChange = ({ target }) => {
