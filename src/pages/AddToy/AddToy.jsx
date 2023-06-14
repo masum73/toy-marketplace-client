@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { AuthContext } from '../../provider/AuthProvider';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 
 const AddToy = () => {
@@ -23,9 +24,9 @@ const AddToy = () => {
         const photo = form.photo.value;
         const name = form.name.value;
         const subcategory = form.subcategory.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
-        const quantity = form.quantity.value;
+        const price = parseFloat(form.price.value);
+        const rating = parseFloat(form.rating.value);
+        const quantity = parseFloat(form.quantity.value);
         const description = form.description.value;
 
         console.log(user.name);
@@ -57,7 +58,12 @@ const AddToy = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert('toy added successfully');
+                    Swal.fire(
+                        'Good job!',
+                        'toy added successfully',
+                        'success'
+                      )
+                      form.reset();
                 }
             })
 

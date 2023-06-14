@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
-import { Card, Typography } from '@material-tailwind/react';
+import { Card, Option, Select, Typography } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
@@ -39,13 +39,28 @@ const MyToys = () => {
                 })
         }
     }
-
+    const handleSorting = (sortBy) => {
+        fetch(url+'&sort='+sortBy, {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setToys(data)
+            })
+    }
     return (
         <div>
             <Helmet>
                 <title>Toy Time | My Toys</title>
             </Helmet>
             <h2 className='text-center text-4xl my-16'>My Toys</h2>
+            <div className="mx-auto my-5 w-72">
+                <Select label="Sort By Price">
+                    <Option onClick={()=>handleSorting('asc')}>Sort by Ascending</Option>
+                    <Option onClick={()=>handleSorting('desc')}>Sort by Descending</Option>
+                </Select>
+            </div>
             <div className='flex justify-center items-center w-11/12 mx-auto'>
                 <Card className="overflow-scroll h-full w-full">
                     <table className="w-full min-w-max table-auto text-left">

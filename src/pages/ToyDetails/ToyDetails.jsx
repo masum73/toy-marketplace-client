@@ -2,6 +2,7 @@ import { Button, Card, Input, Textarea, Typography } from '@material-tailwind/re
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ToyDetails = ({ edit }) => {
     const { id } = useParams();
@@ -13,8 +14,8 @@ const ToyDetails = ({ edit }) => {
 
         const form = event.target;
 
-        const price = form.price.value;
-        const quantity = form.quantity.value;
+        const price = parseFloat(form.price.value);
+        const quantity = parseFloat(form.quantity.value);
         const description = form.description.value;
 
 
@@ -40,7 +41,11 @@ const ToyDetails = ({ edit }) => {
                 console.log(data);
                 if (data.acknowledged) {
                     setToy({ ...updateToy })
-                    alert('toy updated successfully');
+                    Swal.fire(
+                        'Good job!',
+                        'Toy update successful',
+                        'success'
+                      )
                 }
 
 
