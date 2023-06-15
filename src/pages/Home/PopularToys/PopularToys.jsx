@@ -7,7 +7,7 @@ import {
     Button,
     CardFooter,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -15,6 +15,7 @@ const PopularToys = () => {
     const url = 'https://toy-time-server-masum73.vercel.app/alltoys'
     const [toys, setToys] = useState([])
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch((url), {
@@ -28,7 +29,7 @@ const PopularToys = () => {
     }, [])
     const handleViewDetails = (_id) => {
         if (user) {
-            <Link to={`/toy/${toy._id}`}></Link>
+            navigate(`/toy/${_id}`)
         } else {
             Swal.fire({
                 icon: 'error',
