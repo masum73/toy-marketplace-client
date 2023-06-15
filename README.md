@@ -7,4 +7,4 @@
 * In blog, people can read the blogs
 
 ## Project live Link
-https://toy-time.firebaseapp.com/
+https://toy-time.web.app/

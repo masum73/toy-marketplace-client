@@ -31,7 +31,7 @@ const ShopCategory = () => {
 
     const handleViewDetails = (_id) => {
         if(user){
-            <Link to={`/toy/${toy._id}`}></Link>
+            <Link to={`/toy/${_id}`}></Link>
         }else{
             Swal.fire({
                 icon: 'error',
