@@ -3,6 +3,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { Card, Option, Select, Typography } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -23,7 +24,11 @@ const MyToys = () => {
     }, [])
 
     const handleDelete = id => {
-        const proceed = confirm('Are you sure you want to delete?');
+        const proceed = Swal.fire(
+            'Are you sure?',
+            'You want to delete this!',
+            'question'
+          );
         if (proceed) {
             fetch(`https://toy-time-server-mcw3s2dri-masum73.vercel.app/mytoys/${id}`, {
                 method: 'DELETE'
@@ -32,7 +37,11 @@ const MyToys = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('Delete successful');
+                        Swal.fire(
+                            'Good job!',
+                            'Delete successful',
+                            'success'
+                          )
                         const remaining = toys.filter(toy => toy._id !== id);
                         setToys(remaining);
                     }
