@@ -28,7 +28,7 @@ const ToyDetails = ({ edit }) => {
 
         }
         console.log(updateToy);
-        fetch(`https://toy-time-server-lquxfzk16-masum73.vercel.app/mytoys/toy/${id}`, {
+        fetch(`https://toy-time-server.vercel.app/mytoys/toy/${id}`, {
 
             method: 'PATCH',
             headers: {
@@ -53,7 +53,7 @@ const ToyDetails = ({ edit }) => {
     }
 
     useEffect(() => {
-        fetch(`https://toy-time-server-lquxfzk16-masum73.vercel.app/mytoys/toy/${id}`, {
+        fetch(`https://toy-time-server.vercel.app/mytoys/toy/${id}`, {
             method: 'GET',
         })
             .then(res => res.json())
