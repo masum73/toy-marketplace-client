@@ -10,7 +10,7 @@ const MyToys = () => {
     const [toys, setToys] = useState([]);
     const TABLE_HEAD = ["Toy Name", "Price", "Quantity", "Description", "Action", "Action"];
 
-    const url = `https://toy-time-server.vercel.app/mytoys?email=${user?.email}`;
+    const url = `https://toy-time-server-masum73.vercel.app/mytoys?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url, {
@@ -30,7 +30,7 @@ const MyToys = () => {
             'question'
           );
         if (proceed) {
-            fetch(`https://toy-time-server.vercel.app/mytoys/${id}`, {
+            fetch(`https://toy-time-server-masum73.vercel.app/mytoys/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

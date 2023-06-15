@@ -3,7 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Gallery = () => {
-    const url = 'https://toy-time-server.vercel.app/alltoys'
+    const url = 'https://toy-time-server-masum73.vercel.app/alltoys'
     const [toys, setToys] = useState([])
     useEffect(() => {
         AOS.init();
